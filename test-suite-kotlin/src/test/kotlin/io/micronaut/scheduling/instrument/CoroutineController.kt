@@ -30,7 +30,7 @@ class Controller(private val executorService: ExecutorService) : CoroutineScope 
         requestNextToken(0).replay(1).autoConnect()
     }
 
-    fun current() = stream.take(1).singleOrError()!!
+    fun current() = stream.subscribeOn(Schedulers.single()).take(1).singleOrError()!!
 
     private fun requestNextToken(idx: Long): Observable<TokenDetail> {
         return Observable.just(idx).map {
