@@ -39,6 +39,7 @@ dependencies {
     }
     testImplementation project(":function-client")
     testImplementation project(":function-web")
+    testImplementation project(':tracing')
     testImplementation 'io.kotlintest:kotlintest-runner-junit5:3.4.2'
 
     kaptTest project(':inject-java')
